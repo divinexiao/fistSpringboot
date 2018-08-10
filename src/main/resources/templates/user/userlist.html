@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+    <link href="../../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+<body>
+<a th:href="@{http://www.thymeleaf.org}">Thymeleaf</a>
+<h1 :text="${hello}">dddd</h1>
+<h1 :text="${hello}">Hello, Spring Boot!</h1>
+<table border="1px solid grey" >
+    <tr>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>昵称</th>
+        <th>注册时间</th>
+    </tr>
+    <tr th:each="user : ${userList}">
+        <td th:text="${user.id}">0</td>
+        <td th:text="${user.userName}">zhansan</td>
+        <td th:text="${user.email}">1988-06-01</td>
+        <td th:text="${user.regTime}">12345</td>
+    </tr>
+</table>
+
+<select>
+    <option th:each="user:${userList}" th:value="${user.id}" th:text="${user.userName}">我是默认值</option>
+</select>
+</body>
+</html>
